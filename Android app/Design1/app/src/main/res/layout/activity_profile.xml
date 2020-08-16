@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                xmlns:tools="http://schemas.android.com/tools"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+
+                tools:context=".homeActivity">
+
+    <View
+            android:id="@+id/top_view"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:background="@color/colorPrimary"/>
+    <View
+            android:id="@+id/view2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="70dp"
+            android:background="@drawable/ic_wave"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/top_view"/>
+
+    <TextView
+            android:id="@+id/title1"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginTop="30dp"
+            android:gravity="center"
+            android:text="Your Profile"
+            android:textColor="#FFFFFF"
+            android:textSize="36sp"/>
+
+
+    <TextView
+            android:id="@+id/mac11"
+            android:layout_width="207dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="150dp"
+            android:gravity="center"
+            android:text="MAC Address - "
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"/>
+
+    <TextView
+            android:id="@+id/mac1"
+            android:layout_width="207dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="150dp"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"/>
+
+    <TextView
+            android:id="@+id/name11"
+            android:layout_width="207dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="250dp"
+            android:gravity="center"
+            android:text="Name - "
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"/>
+
+    <TextView
+            android:id="@+id/name1"
+            android:layout_width="207dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="250dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"/>
+
+    <TextView
+            android:id="@+id/nick11"
+            android:layout_width="207dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="350dp"
+            android:gravity="center"
+            android:text="Nick Name - "
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"/>
+
+    <TextView
+            android:id="@+id/nick1"
+            android:layout_width="207dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="200dp"
+            android:layout_marginTop="350dp"
+            android:gravity="center"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"/>
+
+
+    <TextView
+            android:id="@+id/dept11"
+            android:layout_width="207dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="450dp"
+            android:gravity="center"
+            android:text="Department - "
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"/>
+
+    <TextView
+            android:id="@+id/dept1"
+            android:layout_width="207dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="450dp"
+            android:gravity="center"
+            android:layout_marginLeft="200dp"
+            android:text=""
+            android:textColor="@color/colorPrimary"
+            android:textSize="24sp"/>
+
+
+</RelativeLayout>

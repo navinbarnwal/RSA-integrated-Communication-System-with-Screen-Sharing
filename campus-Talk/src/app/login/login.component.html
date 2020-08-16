@@ -1,0 +1,41 @@
+<div class="login-screen">
+  <div class="sub-container">
+    <div class="container">
+      <h1>Campus Talk</h1>
+      <img height="100px" src="/assets/ct_logo.png" width="100px"/>
+      <div class="login-bg">
+        <h2>ADMIN LOGIN</h2>
+        <div class="login-form">
+          <!-- Login screen   -->
+
+          <div class="form">
+
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>User Name</mat-label>
+                <input matInput placeholder="No space in between">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint>Hint:- Your User Name is your Email Id</mat-hint>
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input [type]="hide ? 'password' : 'text'" matInput>
+                <button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"
+                        mat-icon-button matSuffix>
+                  <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+              </mat-form-field>
+            </p>
+            <div class="login-button">
+              <a mat-raised-button routerLink="/dashboard">Login</a>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>

@@ -1,0 +1,34 @@
+<div class="main">
+  <div class="horizontal-bar">
+    <div class="container">
+      <div class="row">
+        <div class="col-8 logo"><img height="80px" routerLink="/login" src="/assets/ct_logo.png" width="100px"/>Campus
+          Talk
+        </div>
+
+        <div class="col-4 user">Navin Barnwal
+          <button aria-label="Example icon button with a home icon" color="warn" mat-fab>
+            <mat-icon>perm_identity</mat-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="Vertical-bar">
+    <div class="buttons">
+      <mat-icon routerLink="/dashboard/sub-dashboard">dashboard</mat-icon>
+      <mat-icon routerLink="/dashboard/details">details</mat-icon>
+      <mat-icon routerLink="/dashboard/logs">settings_phone</mat-icon>
+      <mat-icon routerLink="/dashboard/BLockSuspension">block</mat-icon>
+      <mat-icon>settings</mat-icon>
+
+    </div>
+  </div>
+  <div class="sub">
+
+    <router-outlet></router-outlet>
+
+  </div>
+
+</div>
