@@ -1,17 +1,10 @@
-module.exports = (sequelize, Sequelize) => {
-  const userDetail = sequelize.define('user', {
-    name: {
-      type : Sequelize.String
-    },
-    username: {
-      type : Sequelize.String
-    },
-    department: {
-      type : Sequelize.String
-    },
-    macAddress: {
-      type : Sequelize.String
-    }
-  });
-  return userDetail;
-};
+
+
+export interface Userdetail {
+  id: string;
+  name: string;
+  username: string;
+  department: string;
+  macAddress: string;
+  reg_date: string;
+}

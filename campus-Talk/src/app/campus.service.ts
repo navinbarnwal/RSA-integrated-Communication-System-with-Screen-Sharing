@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { Userdetail } from '../user.model';
 
-
-const baseUrl = 'http://localhost:4201/dashboard/details';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,21 +10,24 @@ const baseUrl = 'http://localhost:4201/dashboard/details';
 export class CampusService {
 
   constructor(private http: HttpClient) { }
-  getAll(): Observable<any> {
-    return this.http.get(baseUrl);
+
+  display(): Observable<Userdetail[]> {
+    return this.http.get<Userdetail[]>('/api/display');
   }
 
-  get(id): Observable<any> {
-    return this.http.get(`${baseUrl}/${id}`);
+  addUser(user: Userdetail): Observable<Userdetail> {
+    console.log(user);
+    return this.http.post<Userdetail>('/api/addUser', user);
   }
 
-  create(data): Observable<any> {
-    return this.http.post(baseUrl, data);
+  deleteUser(macAddress: string): Observable<{}> {
+    const url = `api/task/${macAddress}`;
+    return this.http.delete(url);
   }
 
-  update(id, data): Observable<any> {
-    return this.http.put(`${baseUrl}/${id}`, data);
+  updateUser(user: Userdetail): Observable<{}> {
+    const url = `/api/userUpdate/${user.macAddress}`;
+    return this.http.put<Userdetail>(url, user);
   }
-
 
 }
