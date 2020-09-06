@@ -1,6 +1,6 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import {BlockSuspensionComponent} from './block-suspension.component';
+import { BlockSuspensionComponent } from './block-suspension.component';
 
 describe('BlockSuspensionComponent', () => {
   let component: BlockSuspensionComponent;
@@ -8,9 +8,9 @@ describe('BlockSuspensionComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [BlockSuspensionComponent]
+      declarations: [ BlockSuspensionComponent ]
     })
-      .compileComponents();
+    .compileComponents();
   }));
 
   beforeEach(() => {

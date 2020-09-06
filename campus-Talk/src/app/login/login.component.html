@@ -1,8 +1,9 @@
+
 <div class="login-screen">
   <div class="sub-container">
     <div class="container">
       <h1>Campus Talk</h1>
-      <img height="100px" src="/assets/ct_logo.png" width="100px"/>
+      <img src="/assets/ct_logo.png" width="100px" height="100px"/>
       <div class="login-bg">
         <h2>ADMIN LOGIN</h2>
         <div class="login-form">
@@ -21,15 +22,14 @@
             <p>
               <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
-                <input [type]="hide ? 'password' : 'text'" matInput>
-                <button (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide"
-                        mat-icon-button matSuffix>
+                <input matInput [type]="hide ? 'password' : 'text'">
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                   <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
               </mat-form-field>
             </p>
             <div class="login-button">
-              <a mat-raised-button routerLink="/dashboard">Login</a>
+              <a mat-raised-button  routerLink="/dashboard" >Login</a>
             </div>
 
           </div>

@@ -3,11 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --proxy-config proxy.conf.json",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "dev:ssr": "ng run campus-Talk:serve-ssr",
+    "serve:ssr": "node dist/campus-Talk/server/main.js",
+    "build:ssr": "ng build --prod && ng run campus-Talk:server:production",
+    "prerender": "ng run campus-Talk:prerender"
   },
   "private": true,
   "dependencies": {
@@ -20,7 +24,11 @@
     "@angular/material": "^10.1.3",
     "@angular/platform-browser": "~10.0.5",
     "@angular/platform-browser-dynamic": "~10.0.5",
+    "@angular/platform-server": "^10.1.0",
     "@angular/router": "~10.0.5",
+    "@nguniversal/express-engine": "^10.0.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
     "hammerjs": "^2.0.8",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
@@ -31,6 +39,8 @@
     "@angular/cli": "~10.0.4",
     "@angular/compiler-cli": "~10.0.5",
     "@angular/language-service": "~10.0.5",
+    "@nguniversal/builders": "^10.0.1",
+    "@types/express": "^4.17.0",
     "@types/node": "^12.11.1",
     "@types/jasmine": "~3.3.8",
     "@types/jasminewd2": "~2.0.3",

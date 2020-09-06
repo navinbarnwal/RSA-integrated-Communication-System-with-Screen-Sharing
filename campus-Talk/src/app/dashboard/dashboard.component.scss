@@ -1,34 +1,29 @@
 
-.main {
+.main{
   height: 100%;
   width: 100%;
   background-color: #1d2432;
-
-  .horizontal-bar {
+  .horizontal-bar{
     background-color: #111827;
     height: 10%;
     width: 100%;
-
-    .logo {
+    .logo{
       font-family: sans-serif;
       font-size: 32px;
       color: white;
     }
-
-    .user {
+    .user{
       color: white;
       font-size: 20px;
     }
   }
-
-  .Vertical-bar {
+  .Vertical-bar{
     position: absolute;
     background-color: #111827;
     height: 90%;
     text-align: center;
     width: 4%;
-
-    .mat-icon {
+    .mat-icon{
       border: 1px solid white;
       font-size: 40px;
       text-align: center;
@@ -37,12 +32,12 @@
       color: white;
       transition: 1ms ease-in-out;
     }
-
-    .mat-icon:hover {
+    .mat-icon:hover{
       cursor: pointer;
       color: greenyellow;
       border: 1px solid greenyellow;
-      background-color: #5baf6b;;
+      background-color: #5baf6b;
+    ;
 
     }
   }

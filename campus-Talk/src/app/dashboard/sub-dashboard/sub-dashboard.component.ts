@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -11,7 +11,6 @@ export class SubDashboardComponent implements OnInit {
   constructor(private route: ActivatedRoute) {
     this.route.parent.params.subscribe(params => console.log(params));
   }
-
   ngOnInit(): void {
   }
 

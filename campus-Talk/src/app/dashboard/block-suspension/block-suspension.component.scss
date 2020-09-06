@@ -5,27 +5,22 @@ table.purpleHorizon {
   text-align: center;
   border-collapse: collapse;
 }
-
 table.purpleHorizon td, table.purpleHorizon th {
   border: 1px solid #555555;
   padding: 5px 2px;
 }
-
 table.purpleHorizon tbody td {
   font-size: 13px;
   font-weight: bold;
   color: #FFFFFF;
 }
-
 table.purpleHorizon tr:nth-child(even) {
   background: #CC3BFC;
 }
-
 table.purpleHorizon thead {
   background: #792396;
   border-bottom: 4px solid #792396;
 }
-
 table.purpleHorizon thead th {
   font-size: 19px;
   font-weight: bold;
@@ -33,7 +28,6 @@ table.purpleHorizon thead th {
   text-align: left;
   border-left: 2px solid #792396;
 }
-
 table.purpleHorizon thead th:first-child {
   border-left: none;
 }
@@ -48,16 +42,13 @@ table.purpleHorizon tfoot {
   background: linear-gradient(to bottom, #da6dff 0%, #d34fff 66%, #CE3CFF 100%);
   border-top: 5px solid #792396;
 }
-
 table.purpleHorizon tfoot td {
   font-size: 13px;
 }
-
 table.purpleHorizon tfoot .links {
   text-align: right;
 }
-
-table.purpleHorizon tfoot .links a {
+table.purpleHorizon tfoot .links a{
   display: inline-block;
   background: #792396;
   color: #FFFFFF;

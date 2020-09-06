@@ -1,5 +1,5 @@
-import {NgModule} from '@angular/core';
-import {Routes, RouterModule} from '@angular/router';
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
 import {DashboardComponent} from './dashboard/dashboard.component';
 import {LogsComponent} from './dashboard/logs/logs.component';
 import {DetailsComponent} from './dashboard/details/details.component';
@@ -10,24 +10,24 @@ import {SubDashboardComponent} from './dashboard/sub-dashboard/sub-dashboard.com
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'login', pathMatch: 'full'},
-  {path: 'login', component: LoginComponent},
-  {
-    path: 'dashboard', component: DashboardComponent,
-    children: [
+  { path: '', redirectTo: 'login',  pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent,
+  children: [
 
-      {path: '', redirectTo: 'sub-dashboard', pathMatch: 'full'},
-      {path: 'sub-dashboard', component: SubDashboardComponent},
-      {path: 'logs', component: LogsComponent},
-      {path: 'details', component: DetailsComponent},
-      {path: 'BLockSuspension', component: BlockSuspensionComponent}
-    ]
-  },
+    { path: '', redirectTo: 'sub-dashboard', pathMatch: 'full' },
+    { path: 'sub-dashboard', component: SubDashboardComponent },
+    { path: 'logs', component: LogsComponent },
+    { path: 'details', component: DetailsComponent },
+    { path: 'BLockSuspension', component: BlockSuspensionComponent }
+  ]},
+  {path: '**', component: LoginComponent},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, {
+    initialNavigation: 'enabled'
+})],
   exports: [RouterModule]
 })
-export class AppRoutingModule {
-}
+export class AppRoutingModule { }
