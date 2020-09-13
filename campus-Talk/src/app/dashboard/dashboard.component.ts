@@ -11,7 +11,6 @@ export class DashboardComponent implements OnInit {
   constructor(private route: ActivatedRoute) {
     this.route.parent.params.subscribe(params => console.log(params));
   }
-
   ngOnInit(): void {
   }
 

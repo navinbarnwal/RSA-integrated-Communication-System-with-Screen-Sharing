@@ -1,25 +1,33 @@
 <div class="main">
   <div class="horizontal-bar">
     <div class="container">
-      <div class="row">
-        <div class="col-8 logo"><img src="/assets/ct_logo.png" width="100px" height="80px" routerLink="/login"/>Campus Talk </div>
+      <div class="top-navigation">
+      <div class="row ">
 
+        <div class="col-2 ">
+          <div class="logo">HOME</div>
+        </div>
+        <div class="col "></div>
         <div class="col-4 user">Navin Barnwal
           <button mat-fab color="warn" aria-label="Example icon button with a home icon">
             <mat-icon>perm_identity</mat-icon>
           </button>
         </div>
       </div>
+      </div>
     </div>
   </div>
 
   <div class="Vertical-bar">
+    <div class="center" style="text-align: center;">
+      <img src="/assets/ct_logo.png" class="logo" alt="LOGO">
+      <h4>Welcome to campus talk</h4>
+    </div>
     <div class="buttons">
-      <mat-icon routerLink="/dashboard/sub-dashboard">dashboard</mat-icon>
-      <mat-icon routerLink="/dashboard/details">details</mat-icon>
-      <mat-icon routerLink="/dashboard/logs">settings_phone</mat-icon>
-      <mat-icon routerLink="/dashboard/BLockSuspension">block</mat-icon>
-      <mat-icon>settings</mat-icon>
+      <a  routerLink="/dashboard/details"><i class="far fa-address-book"></i><span>User Details</span></a>
+      <a routerLink="/dashboard/logs"><i class="fas fa-phone-square-alt"></i><span> Call Logs</span></a>
+      <a routerLink="/dashboard/BLockSuspension"><i class="fas fa-ban"></i><span>Block/Suspend</span></a>
+      <a routerLink="/dashboard/BLockSuspension"><i class="fas fa-cog fa-spin"></i><span>Settings</span></a>
 
     </div>
   </div>

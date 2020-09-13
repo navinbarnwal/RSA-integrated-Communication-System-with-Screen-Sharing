@@ -44,13 +44,12 @@ export class DetailsComponent implements OnInit {
   ngOnInit() {
     this.userService.display().subscribe(
       (data) => {
-        console.log(data);
+
         this.user = data;
+        console.log(this.user);
       }
     );
   }
-  submit(){
 
-  };
 
 }

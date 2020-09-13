@@ -13,6 +13,7 @@ app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
 
 mysql = MySQL(app)
 CORS(app)
+
 @app.route('/api/display',  methods=['GET'])
 def display():
     cur = mysql.connection.cursor()

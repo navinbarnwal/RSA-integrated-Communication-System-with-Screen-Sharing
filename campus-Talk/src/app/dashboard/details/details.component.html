@@ -2,48 +2,37 @@
 
 
 
-<div class="limiter">
-
   <div class="container">
 
     <div class="wrap-table100">
-      <div class="table100"  formGroupName="userinfo">
+      <div class="table100"  >
         <table>
           <thead>
           <tr class="table100-head">
             <th class="column1">Position</th>
-            <th class="column2">Name</th>
-            <th class="column3">UserName</th>
-            <th class="column4">Department</th>
-            <th class="column5">Mac Address</th>
+            <th class="column2">Department</th>
+            <th class="column3">Mac Address</th>
+            <th class="column4">name</th>
+            <th class="column5">User Name</th>
 
           </tr>
           </thead>
           <tbody>
           <tr *ngFor="let x of user">
             <td class="column1">{{x.id}}</td>
-            <td class="column2">{{x.name}}</td>
-            <td class="column3">{{x.username}}</td>
-            <td class="column4">{{x.department}}</td>
-            <td class="column5">{{x.macAddress}}</td>
+            <td class="column2">{{x.department}}</td>
+            <td class="column3">{{x.macAddress}}</td>
+            <td class="column4">{{x.name}}</td>
+            <td class="column5">{{x.username}}</td>
 
           </tr>
-          <tr>
-            <td class="column1"></td>
-            <td class="column2"><input type="text" formControlName="name"></td>
-            <td class="column3"><input type="text" formControlName="username"></td>
-            <td class="column4">
 
-            </td>
-            <td class="column5"><input type="text" formControlName="macAddress"></td>
-
-          </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <mat-button-toggle (click)="submit()">Submit</mat-button-toggle>
+    <button >Submit</button>
   </div>
-</div>
+
 
 <router-outlet></router-outlet>
