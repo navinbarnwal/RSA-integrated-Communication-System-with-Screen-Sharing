@@ -1,8 +1,9 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 from flask_mysqldb import MySQL
 from flask_cors import CORS
-from flask import jsonify
+import logging as logger
 
+logger.basicConfig(level="DEBUG")
 app = Flask(__name__)
 
 app.config['MYSQL_USER'] = 'campus-talk'
@@ -19,30 +20,43 @@ def display():
     cur = mysql.connection.cursor()
     cur.execute("SELECT * FROM userdetails")
     rv = cur.fetchall()
+    cur.close()
     return jsonify(rv)
 
-@app.route('/api/userUpdate', methods=['POST'])
+@app.route('/api/updateUser', methods=['POST'])
 def userUpdate():
     cur = mysql.connection.cursor()
     name = request.get_json()['name']
     department = request.get_json()['department']
     username = request.get_json()['userName']
     macAddress = request.get_json()['macAddress']
-    cur.execute("UPDATE tasks SET name = '" + str(name) + "' WHERE macAddress = " +
-                macAddress)
+    cur.execute("UPDATE userdetails SET name = '" +str(name)+"', department = '"+str(department)+"', username= '"+str(username)+"' WHERE macAddress = '" +str(macAddress)+"'")
     mysql.connection.commit()
-    result = {'name': name}
-
-    return jsonify({'result': result})
+    result = {'name': name, 'username': username, 'department': department, 'macAddress': macAddress}
+    cur.close()
+    return jsonify({'result': result, 'status':'User Detail Updated in database !!'}),200
 
 @app.route('/api/addUser', methods=['POST'])
 def addUser():
     cur = mysql.connection.cursor()
-    title = request.get_json()['title']
-    cur.execute("INSERT INTO tasks (title) VALUES ('" + str(title) + "')")
+    name = request.get_json()['name']
+    department = request.get_json()['department']
+    username = request.get_json()['userName']
+    macAddress = request.get_json()['macAddress']
+    cur.execute("INSERT INTO userdetails(name, username, department, macAddress) VALUES (%s, %s, %s, %s)", (name, username, department, macAddress))
     mysql.connection.commit()
-    result = {'title': title}
+    result = {'name':name,'department':department,'username':username, 'macAddress': macAddress}
     return jsonify({'result': result})
 
+
+@app.route('/api/auth', methods=['POST'])
+def auth():
+    macAddress = request.get_json()['macAddress']
+    cur = mysql.connection.cursor()
+    cur.execute("SELECT * FROM userdetails WHERE macAddress = '"+ str(macAddress) +"';")
+    rv = cur.fetchall()
+    cur.close()
+    return jsonify(rv)
+
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=True, port=5000, use_reloader=True)

@@ -1,6 +1,3 @@
-<h1 style="text-align: center; color: white; font-size: 32px; padding: 32px;"> List of all User Details</h1>
-
-
 
   <div class="container">
 
@@ -26,13 +23,44 @@
             <td class="column5">{{x.username}}</td>
 
           </tr>
-
+          <tr>
+            <td class="adduserButton" colspan="5" (click)="adduserfunction()"><b>{{addusertext}}</b></td>
+          </tr>
           </tbody>
         </table>
       </div>
     </div>
-    <button >Submit</button>
-  </div>
 
+  </div>
+<div class="adduserform"*ngIf="addusertoggle === true">
+  <div class="container">
+    <form [formGroup]="userdetails" (ngSubmit)="onSubmit()">
+      <label>
+        Name:
+        <input type="text" formControlName="name" required>
+      </label><br>
+      <label>
+        Department:
+        <input type="text" formControlName="department">
+      </label><br>
+      <label>
+        Username:
+        <input type="text" formControlName="userName">
+      </label><br>
+      <label>
+        Mac Address:
+        <input type="text" formControlName="macAddress">
+      </label><br>
+      <button type="submit" [disabled]="!userdetails.valid">Submit</button> Form Status: {{ userdetails.status }}
+    </form>
+    <hr>
+    <p style="color: red;">
+      {{formresult}}
+    </p>
+    <p>
+     {{ userdetails.value | json }}
+    </p>
+  </div>
+</div>
 
 <router-outlet></router-outlet>

@@ -16,7 +16,7 @@ export class CampusService {
   }
 
   addUser(user: Userdetail): Observable<Userdetail> {
-    console.log(user);
+    console.log(user, 'from service');
     return this.http.post<Userdetail>('/api/addUser', user);
   }
 

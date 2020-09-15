@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CampusService} from '../../campus.service';
 import { Userdetail} from '../../../user.model';
-import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 interface dept {
   name: string;
@@ -13,22 +13,20 @@ interface dept {
   styleUrls: ['./details.component.scss']
 })
 export class DetailsComponent implements OnInit {
-  constructor(private userService: CampusService, fb: FormBuilder ) {
-    this.data = fb.group({
-      name: '',
-      username: '',
-      department: '',
-      macAddress: ''
-    });
+
+  get aliases() {
+    return this.userdetails.get('aliases') as FormArray;
   }
-  user = [];
-  data: FormGroup;
-  userinfo = new FormGroup({
-    name: new FormControl(''),
-    username: new FormControl(''),
-    department: new FormControl(''),
-    macAddress: new FormControl(''),
+  constructor(private userService: CampusService, private fb: FormBuilder ) {
+  }
+  userdetails = this.fb.group({
+    name: ['', Validators.required],
+    userName: ['', Validators.required],
+    department: ['', Validators.required],
+    macAddress: ['', Validators.required]
   });
+  user = [];
+  formresult = '';
   depts: dept[] = [
     {name: 'Department of Computer Science', nameValue: 'Department of Computer Science'},
     {name: 'Department of Physcology', nameValue: 'Department of Physcology'},
@@ -41,6 +39,36 @@ export class DetailsComponent implements OnInit {
     {name: 'Department of Management', nameValue: 'Department of Management'},
 
   ];
+  addusertoggle = false;
+  addusertext = 'Add User +';
+  adduserfunction(){
+    if ( this.addusertoggle === false){
+      this.addusertext = 'Cancel Adding User';
+      this.addusertoggle = true;
+    }else{
+      this.addusertext = 'Add User +';
+      this.addusertoggle = false;
+      this.formresult = '';
+    }
+  }
+  updateProfile() {
+    this.userdetails.patchValue({
+      firstName: 'Nancy',
+      address: {
+        street: '123 Drew Street'
+      }
+    });
+  }
+
+  addAlias() {
+    this.aliases.push(this.fb.control(''));
+  }
+
+  onSubmit() {
+    this.userService.addUser(this.userdetails.value).subscribe();
+    console.warn(this.userdetails.value);
+    this.formresult = 'Form Submitted Successfully !!';
+  }
   ngOnInit() {
     this.userService.display().subscribe(
       (data) => {
