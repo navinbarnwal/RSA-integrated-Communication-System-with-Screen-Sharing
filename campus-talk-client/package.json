@@ -22,6 +22,7 @@
     "@angular/platform-browser": "~10.0.9",
     "@angular/platform-browser-dynamic": "~10.0.9",
     "@angular/router": "~10.0.9",
+    "@types/socket.io-client": "^1.4.33",
     "require": "^2.4.20",
     "requirejs": "^2.3.6",
     "rxjs": "~6.5.5",

@@ -2,18 +2,33 @@ from flask import Flask, jsonify, request
 from flask_mysqldb import MySQL
 from flask_cors import CORS
 import logging as logger
+from flask_socketio import SocketIO
 
 logger.basicConfig(level="DEBUG")
 app = Flask(__name__)
+app.config['SECRET_KEY'] = 'vnkdjnfjknfl1232#'
+socketio = SocketIO(app)
 
 app.config['MYSQL_USER'] = 'campus-talk'
 app.config['MYSQL_PASSWORD'] = 'abc'
 
 app.config['MYSQL_DB'] = 'campus-talk'
 app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
-
 mysql = MySQL(app)
 CORS(app)
+
+
+@app.route('/api/chat')
+def sessions():
+    return render_template('session.html')
+
+def messageReceived(methods=['GET', 'POST']):
+    print('message was received!!!')
+
+@socketio.on('my event')
+def handle_my_custom_event(json, methods=['GET', 'POST']):
+    print('received my event: ' + str(json))
+    socketio.emit('my response', json, callback=messageReceived)
 
 @app.route('/api/display',  methods=['GET'])
 def display():
